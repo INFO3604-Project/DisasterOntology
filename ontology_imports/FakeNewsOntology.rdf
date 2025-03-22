@@ -21,24 +21,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#containsMisinformation -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#containsMisinformation">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FakeNewsPattern"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#hasLocation -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#hasLocation">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#DisasterEvent"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Location"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#mentionsEvent -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#mentionsEvent">
@@ -48,9 +30,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#ocurredAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#ocurredAt">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#DisasterEvent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Location"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#reportedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#reportedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#DisasterEvent"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Source"/>
@@ -73,6 +68,14 @@
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#country">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#date">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#DisasterEvent"/>
     </owl:DatatypeProperty>
     
 
@@ -117,18 +120,42 @@
     
 
 
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#subregion -->
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#reportContent -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#subregion">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Location"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#reportContent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#year -->
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#reportID -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#year">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#DisasterEvent"/>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#reportID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#sourceName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#sourceName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Source"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#sourceURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#sourceURL">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Source"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#subregion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#subregion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Location"/>
     </owl:DatatypeProperty>
     
 
@@ -144,87 +171,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#AIGeneratedImages -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#AIGeneratedImages">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FakeNewsPattern"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#BreakingNews -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#BreakingNews">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#ClickbaitHeadlines -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#ClickbaitHeadlines">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FakeNewsPattern"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#DisasterEvent -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#DisasterEvent"/>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#ExaggeratedClaims -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#ExaggeratedClaims">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FakeNewsPattern"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#EyewitnessReport -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#EyewitnessReport">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FactCheckedNews -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FactCheckedNews">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FactCheckingSite -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FactCheckingSite">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Source"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FakeNewsPattern -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FakeNewsPattern"/>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FalseStatistics -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FalseStatistics">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FakeNewsPattern"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#GovernmentStatement -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#GovernmentStatement">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
-    </owl:Class>
     
 
 
@@ -234,41 +183,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#MainstreamMedia -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#MainstreamMedia">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Source"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#MisattributedQuotes -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#MisattributedQuotes">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#FakeNewsPattern"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#SocialMedia -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#SocialMedia">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#Source"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#SocialMediaPost -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#SocialMediaPost">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/FakeNewsOntology#NewsReport"/>
-    </owl:Class>
     
 
 
