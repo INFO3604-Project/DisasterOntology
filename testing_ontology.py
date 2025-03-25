@@ -5,7 +5,7 @@ import datetime
 from nltk.tokenize import word_tokenize
 
 class Txc2:
-    def __init__(self, ontology_path="DisasterOntology.rdf"):
+    def __init__(self, ontology_path="disaster_ontology.rdf"):
         self.ontology = Graph()
         self.ontology.parse(ontology_path, format="xml")  # Load ontology
         self.Pc = 3.0  # Trust score
