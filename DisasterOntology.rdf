@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology/"
+     xml:base="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#mentionsEvent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#mentionsEvent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#NewsReport"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#DisasterEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#ocurredAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#ocurredAt">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#DisasterEvent"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#reportedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#reportedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#DisasterEvent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#NewsReport"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Source"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#country -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#country">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#disasterGroup -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#disasterGroup">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#DisasterEvent"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#disasterID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#disasterID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#DisasterEvent"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#disasterSubgroup -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#disasterSubgroup">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#DisasterEvent"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#disasterType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#disasterType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#DisasterEvent"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#region -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#region">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#reportContent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#reportContent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#NewsReport"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#reportID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#reportID">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#NewsReport"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#sourceName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#sourceName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Source"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#sourceURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#sourceURL">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Source"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#subregion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#subregion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#DisasterEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#DisasterEvent"/>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Location -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Location"/>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#NewsReport -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#NewsReport"/>
+    
+
+
+    <!-- http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Source -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#Source"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
