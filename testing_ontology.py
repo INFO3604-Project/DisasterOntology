@@ -1,70 +1,58 @@
-from rdflib import Graph, RDFS
+from rdflib import Graph
 from nltk.corpus import wordnet as wn
-import random
-import datetime
-from nltk.tokenize import word_tokenize
+import numpy as np
 
-class Txc2:
-    def __init__(self, ontology_path="disaster_ontology.rdf"):
-        self.ontology = Graph()
-        self.ontology.parse(ontology_path, format="xml")  # Load ontology
-        self.Pc = 3.0  # Trust score
-        self.numRatings = 0
-        self.numMessages = 0
-        self.ratings = []
-        self.mRatings = []
+# Load the ontology
+g = Graph()
+g.parse("disaster_ontology.rdf")  # Replace with your ontology file path
+
+# SPARQL Query to extract disaster event concepts
+QUERY = """
+PREFIX ex: <http://www.semanticweb.org/zakar/ontologies/2025/1/DisasterOntology#>
+SELECT ?event ?subtype WHERE {
+    ?event a ex:DisasterEvent ;
+           ex:disasterSubtype ?subtype .
+}
+"""
+
+def wordnet_similarity(word1, word2):
+    """Compute Wu-Palmer similarity using WordNet."""
+    syn1 = wn.synsets(word1)
+    syn2 = wn.synsets(word2)
+
+    if not syn1 or not syn2:
+        return 0  # No similarity if words are not in WordNet
+
+    sim_scores = [syn1[0].wup_similarity(s) for s in syn2 if syn1[0].wup_similarity(s)]
+    return max(sim_scores) if sim_scores else 0
+
+def compareText(message: str):
+    """Compare message text with ontology disaster events."""
+    # Tokenize message into words
+    message_words = message.lower().split()
+
+    # Fetch disaster event subtypes from ontology
+    results = g.query(QUERY)
+    ontology_concepts = [str(row.subtype.split("#")[-1]).lower() for row in results]
+
+    similarity_scores = []
     
-    def get_ontology_terms(self, concept):
-        """Retrieve synonyms for a concept from the ontology and WordNet."""
-        synonyms = set()
+    for concept in ontology_concepts:
+        concept_words = concept.split("_")  # Assume ontology uses snake_case
 
-        # Extract terms from ontology
-        for s, p, o in self.ontology.triples((None, RDFS.label, None)):
-            if concept.lower() in str(o).lower():
-                synonyms.add(str(o))
+        # Compute similarity between each word in the message and ontology concept
+        sim_values = [wordnet_similarity(word, concept_word) for word in message_words for concept_word in concept_words]
 
-        # Extract synonyms from WordNet
-        for syn in wn.synsets(concept):
-            for lemma in syn.lemmas():
-                synonyms.add(lemma.name().replace("_", " "))
+        # Take the max similarity score for this concept
+        max_sim = max(sim_values) if sim_values else 0
+        similarity_scores.append(max_sim)
 
-        return list(synonyms)
+    # Normalize the similarity scores (equivalent to Ms in your C++ code)
+    if similarity_scores:
+        return np.mean(similarity_scores)
+    return 0.0  # No similarity found
 
-    def extract_disaster_terms(self, text):
-        """Extract disaster-related words from the text using simple token matching."""
-        words = set(word_tokenize(text.lower()))  # Tokenize text and convert to lowercase
-        disaster_terms = self.get_ontology_terms("disaster")  # Get disaster-related words
-        matched_terms = [word for word in words if word in disaster_terms]  # Find matches
-        
-        return matched_terms  # Return list of matched disaster-related terms
-
-    def compare_text(self, message):
-        """Compare disaster-related words in the message with real events in the ontology."""
-        matched_terms = self.extract_disaster_terms(message)
-        if not matched_terms:
-            return 0.0  # No relevant disaster terms found
-
-        similarity_score = len(matched_terms) / len(message.split())  # Normalize score
-        return similarity_score
-
-    def credibility_score(self, ratings):
-        """Compute credibility score based on ratings."""
-        return sum(ratings) / len(ratings) if ratings else 0.0
-
-    def generate_fake_news(self):
-        """Simulate generating fake disaster news."""
-        disasters = ["Hurricane", "Earthquake", "Tsunami", "Wildfire", "Flood"]
-        locations = ["Florida", "Japan", "India", "California", "Australia"]
-        return f"{random.choice(disasters)} hits {random.choice(locations)} causing destruction."
-
-    def generate_real_news(self):
-        """Simulate generating real disaster news."""
-        return "Hurricane Katrina devastated New Orleans in 2005."
-
-# Example Usage
-txc2 = Txc2()
-
-# Fake news detection example
-message = "A major earthquake struck California, causing devastation."
-similarity_score = txc2.compare_text(message)
-print(f"Fake News Similarity Score: {similarity_score:.2f}")  # Higher means closer to real disaster events
+# Example usage
+message = "Parts of northern Somalia and areas along the Juba and Shabelle River basins in Somalia have experienced heavy rains following the start of the Deyr rains on 7 October."
+similarity_score = compareText(message)
+print(f"Semantic Similarity Score: {similarity_score:.4f}")
