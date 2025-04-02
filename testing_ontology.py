@@ -38,10 +38,10 @@ def compareText(message: str):
     similarity_scores = []
     
     for concept in ontology_concepts:
-        concept_words = concept.split("_")  # Assume ontology uses snake_case
+        #concept_words = concept.split("_")  # Assume ontology uses snake_case
 
         # Compute similarity between each word in the message and ontology concept
-        sim_values = [wordnet_similarity(word, concept_word) for word in message_words for concept_word in concept_words]
+        sim_values = [wordnet_similarity(word, concept) for word in message_words for concept_word in concept]
 
         # Take the max similarity score for this concept
         max_sim = max(sim_values) if sim_values else 0
