@@ -1,7 +1,7 @@
 /*
- This file contains the code for the module within the Veracity architecture that defines the compareText algorithm, as well as 
- the other features utilized in Veracity. We studied and reviewed this code to learn the inner workings of the algorithm's similarity
- score computation.
+ This file contains the C++ codebase for the module within the Veracity architecture that defines the compareText algorithm, as well
+ as the other features utilized in Veracity. We studied and reviewed this code to learn the inner workings of the algorithm's 
+ similarity score computation.
 */
 
 /*
