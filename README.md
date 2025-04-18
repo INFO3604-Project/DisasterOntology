@@ -6,6 +6,6 @@ Our project's objective was to develop a domain-specific disaster ontology to be
 
 In addition to creating the disaster ontology, we reviewed the algorithm's similarity score calculation, and enhanced the cosine similarity that was intially done on raw character vectors, to compute the scores on context-aware vectors, using the SBERT or Sentence-BERT model in Python to convert the input message and ontology instances to sentence embeddings that are dense vector representations of a sentence. Using context-aware vectors instead of raw character vectors incorporates a semantic layer into the algorithm's similarity score computation. 
 
-The contents of the folders and files in the repository are described as follows:
+The contents of the folders and files stored in this repository are outlined as follows:
 
 
