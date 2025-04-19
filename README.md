@@ -23,5 +23,5 @@ The contents of the folders and files stored in this repository are outlined as 
 
 ### Configurations
 
-Each notebook contains the necessary install and import lines for the libraries utilized to run the code. Running these code segments will install and import the libraries on your selected kernel. Once installed, only the import statements need to be included to utilize the library. disaster_ontology.rdf is duplicated in two folders, as notebooks within those folders call on the file for their operations. Should any errors be encountered running the code, with the file not being found, simply copy this file to the folder containing the code. 
+Each notebook contains the necessary install and import lines for the libraries utilized to run the code. Running these code segments will install and import the libraries on your selected kernel. Once installed, only the code segments containin the import statements will need to be run to utilize the library. disaster_ontology.rdf is duplicated in two folders, as notebooks within those folders call on the file for their operations. Should any errors be encountered running the code, with the file not being found, simply copy this file to the folder containing the code. 
 
