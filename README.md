@@ -8,4 +8,7 @@ In addition to creating the disaster ontology, we reviewed the algorithm's simil
 
 The contents of the folders and files stored in this repository are outlined as follows:
 
+- Similarity_Model : contains the finalized implementation of the ontology in the compareText algorithm. The RDF ontology file is parsed and each instance description is extracted and stored in a JSON file, which the algorithm calls on everytime it is called for comparison. similarity_model.py wraps the algorithm in a class, which is called in the testing notebook. The testing notebook outline the evaluation of the model carried out with a threshold of 0.5 and the test dataset
+
+- 
 
