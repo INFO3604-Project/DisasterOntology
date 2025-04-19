@@ -10,5 +10,18 @@ The contents of the folders and files stored in this repository are outlined as 
 
 - Similarity_Model : contains the finalized implementation of the ontology in the compareText algorithm. The RDF ontology file is parsed and each instance description is extracted and stored in a JSON file, which the algorithm calls on everytime it is called for comparison. similarity_model.py wraps the algorithm in a class, which is called in the testing notebook. The testing notebook outline the evaluation of the model carried out with a threshold of 0.5 and the test dataset
 
-- 
+- codebases : contains the C++ codebase of the compareText algorithm and an initial attempt of the python version of the algorithm. This was an early attempt that was not further utilized in our end product.
+
+- dataset_cleaning : contains the disaster datasets used to populate the ontology and notebooks where cleaning and preprocessing steps were executed to condense and merge the datasets.
+
+- model_testing : contains initial testing of a prediction model on an obtained output dataset from the Veracity architecture, which demonstrates the accuracy of Veracity's prediction utilizing all credibility features.
+
+- ontology_imports : contains the intial exported RDF ontology structure without instances (DisasterOntology.rdf). Imports data from the merged dataset into the ontology and saves the updated, populated version to be used in the algorithm's implementation as disaster_ontology.rdf.
+
+- testings : contains trial tests to determine the final implementation of the similarity score computation. testing_ontology.py uses the Wu-Palmer metric to test the similarity, which did not yield the results we wanted with the similarity score. SBERT_testing.ipynb contains implementation using the SBERT model. We used trial and error with different versions of the code to debug and curate our final implementation of the model.
+
+
+### Configurations
+
+Each notebook contains the necessary install and import lines for the libraries utilized to run the code. Running these code segments will install and import the libraries on your selected kernel. Once installed, only the import statements need to be included to utilize the library. disaster_ontology.rdf is duplicated in two folders, as notebooks within those folders call on the file for their operations. Should any errors be encountered running the code, with the file not being found, simply copy this file to the folder containing the code. 
 
