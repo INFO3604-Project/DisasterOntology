@@ -42,7 +42,7 @@ print(f"Similarity Score: {similarity_score}")
 #### Description
 
 - `SimilarityModel`: A class that loads ontology-based descriptions and computes semantic similarity using Sentence-BERT.
-- `ontology_descriptions.json`: A JSON file containing descriptions of disaster-related concepts (e.g., types of events, locations).
+- `ontology_descriptions.json`: A JSON file containing descriptions of disaster-related concepts (types of events, locations) extracted from the ontology.
 - `compare_text(message)`: Returns a similarity score indicating how closely the input `message` matches any concept in the ontology.
 
 
