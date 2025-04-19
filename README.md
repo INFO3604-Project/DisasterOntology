@@ -25,3 +25,24 @@ The contents of the folders and files stored in this repository are outlined as 
 
 Each notebook contains the necessary install and import lines for the libraries utilized to run the code. Running these code segments will install and import the libraries on your selected kernel. Once installed, only the code segments containin the import statements will need to be run to utilize the library. disaster_ontology.rdf is duplicated in two folders, as notebooks within those folders call on the file for their operations. Should any errors be encountered running the code, with the file not being found, simply copy this file to the folder containing the code. 
 
+The similarity score for any message can be tested in test.ipynb in the Similarity_Model folder. The following example shows how to use the `SimilarityModel` class to compute semantic similarity between a message and concepts defined in an ontology.
+
+```python
+from similarity_model import SimilarityModel
+
+# Load the similarity model with ontology descriptions
+model = SimilarityModel("ontology_descriptions.json")
+
+# Compare a message to ontology instances
+similarity_score = model.compare_text(message)
+
+print(f"Similarity Score: {similarity_score}")
+```
+
+#### Description
+
+- `SimilarityModel`: A class that loads ontology-based descriptions and computes semantic similarity using Sentence-BERT.
+- `ontology_descriptions.json`: A JSON file containing descriptions of disaster-related concepts (e.g., types of events, locations).
+- `compare_text(message)`: Returns a similarity score indicating how closely the input `message` matches any concept in the ontology.
+
+
