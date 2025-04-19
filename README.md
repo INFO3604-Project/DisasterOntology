@@ -46,3 +46,7 @@ print(f"Similarity Score: {similarity_score}")
 - `compare_text(message)`: Returns a similarity score indicating how closely the input `message` matches any concept in the ontology.
 
 
+#### Repository
+
+The full code for the demo used in the presentation is linked here:  
+🔗 [SimilarityDemo GitHub Repository](https://github.com/zuhrahmohammed/SimilarityDemo)
